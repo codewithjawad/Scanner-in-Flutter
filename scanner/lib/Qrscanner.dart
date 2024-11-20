@@ -14,13 +14,13 @@ class _QrscannerState extends State<Qrscanner> {
   bool scanCompleted = false;
   bool isCameraOn = false;
   bool isFlashOn = false;
-  late Object code;
+  late String code; 
 
   MobileScannerController mobScannerController = MobileScannerController();
 
   void closeScreen() {
     setState(() {
-      scanCompleted = false; // Reset scan completion status
+      scanCompleted = false; 
     });
   }
 
@@ -98,7 +98,7 @@ class _QrscannerState extends State<Qrscanner> {
                     onDetect: (barcode) {
                       if (!scanCompleted) {
                         setState(() {
-                          code = barcode.raw ?? 'Unknown';
+                          code = barcode.raw.toString();
                           scanCompleted = true;
                         });
                         Navigator.push(
