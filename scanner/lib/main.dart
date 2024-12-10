@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:scanner/Qrscanner.dart';
+import 'package:scanner/resultscreen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
               const AppBarTheme(backgroundColor: Colors.white, elevation: 2.0)),
       debugShowCheckedModeBanner: false,
       title: 'QR Scanner',
-      home: const Qrscanner(),
+      home: Qrscanner(),
     );
   }
 }

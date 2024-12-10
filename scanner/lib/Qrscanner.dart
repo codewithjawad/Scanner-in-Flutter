@@ -14,22 +14,30 @@ class _QrscannerState extends State<Qrscanner> {
   bool scanCompleted = false;
   bool isCameraOn = false;
   bool isFlashOn = false;
-  late String code; 
+  late String code;
 
   MobileScannerController mobScannerController = MobileScannerController();
 
   void closeScreen() {
     setState(() {
-      scanCompleted = false; 
+      scanCompleted = false;
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      drawer: const Drawer(),
+      backgroundColor: const Color(0xFFF5F5F5), // Off-white background
+
       appBar: AppBar(
+        backgroundColor: Color(0xFF00BF6D), // Green AppBar background
+        iconTheme:
+            const IconThemeData(color: Colors.white), // Set icons to white
+        titleTextStyle: const TextStyle(
+            color: Colors.white, // White text color for the title
+            fontWeight: FontWeight.bold,
+            fontSize: 18,
+            letterSpacing: 2),
         actions: [
           IconButton(
             onPressed: () {
@@ -40,7 +48,9 @@ class _QrscannerState extends State<Qrscanner> {
             },
             icon: Icon(
               Icons.flash_on,
-              color: isFlashOn ? Colors.blue : Colors.grey,
+              color: isFlashOn
+                  ? Colors.white
+                  : Colors.white, // Flash icon in white
             ),
           ),
           IconButton(
@@ -52,19 +62,14 @@ class _QrscannerState extends State<Qrscanner> {
             },
             icon: Icon(
               Icons.camera_front,
-              color: isCameraOn ? Colors.blue : Colors.grey,
+              color: isCameraOn
+                  ? Colors.white
+                  : Colors.white, // Camera switch icon in white
             ),
           ),
         ],
         centerTitle: true,
-        title: const Text(
-          'Qr Scanner',
-          style: TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
-              fontSize: 18,
-              letterSpacing: 2),
-        ),
+        title: const Text('Qr Scanner'),
       ),
       body: Container(
         width: double.infinity,
@@ -124,7 +129,7 @@ class _QrscannerState extends State<Qrscanner> {
               child: Container(
                 alignment: Alignment.center,
                 child: const Text(
-                  'Developed By Jawwad Ahmed',
+                  'Developed By Quantaflix',
                   style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
